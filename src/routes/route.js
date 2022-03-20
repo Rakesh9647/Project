@@ -5,7 +5,6 @@ const authorController = require("../controllers/authorController")
 const blogsController = require("../controllers/blogsController")
 const middleWere = require('../middleWare/auth')
 
-// PHASE 1:
 
 // AUTHOR APIS
 router.post("/createAuthor",authorController.author)  // create author
@@ -25,7 +24,6 @@ router.delete("/blogs/:blogId",middleWere.authenticate,middleWere.authorise ,blo
 // ### DELETE /blogs?queryParams:
 router.delete("/blogs",middleWere.authenticate,middleWere.verifyAuthorId,blogsController.deleteByQueryParam) // delete blog by using quary
 
-// PHASE (2):
 
 // ### POST(/LOGIN):
 router.post("/login" , authorController.loginAuthor) // using post api to login
