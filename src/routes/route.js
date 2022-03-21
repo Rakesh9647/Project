@@ -9,6 +9,10 @@ const middleWere = require('../middleWare/auth')
 // AUTHOR APIS
 router.post("/createAuthor",authorController.author)  // create author
 
+
+// ### POST(/LOGIN):
+router.post("/login" , authorController.loginAuthor) // using post api to login
+
 // ### POST /blogs:
 router.post("/createBlogs",middleWere.authenticate,blogsController.blogs) // create blog
 
@@ -25,8 +29,7 @@ router.delete("/blogs/:blogId",middleWere.authenticate,middleWere.authorise ,blo
 router.delete("/blogs",middleWere.authenticate,middleWere.verifyAuthorId,blogsController.deleteByQueryParam) // delete blog by using quary
 
 
-// ### POST(/LOGIN):
-router.post("/login" , authorController.loginAuthor) // using post api to login
+
 
 
 
